@@ -35,6 +35,7 @@ namespace mauModule7
                 MessageBox.Show("Show title can not be an empty field", "Error");
                 return ok;
             }
+            show.Title = showTitle;
             show.Type = (ShowType)cmbShowType.SelectedIndex;
             show.Status = (WatchStatus)cmbWatchStatus.SelectedIndex;
             if (ReadMaxEpisodes() && ReadEpisodesWatched() && ReadUserScore()) 

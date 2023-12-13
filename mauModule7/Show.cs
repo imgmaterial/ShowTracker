@@ -24,6 +24,18 @@ public class Show
 		
 	}
 
+	public string Title
+	{
+		get { return this.title; } 
+		set 
+		{
+			if (!string.IsNullOrEmpty(value)) 
+			{
+				this.title = value;
+			}
+		}
+	}
+
 	public int CurrentEpisodes
 	{
 		get { return this.currentEpisodes; }

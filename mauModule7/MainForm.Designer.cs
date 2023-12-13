@@ -30,6 +30,8 @@
         {
             Based = new Label();
             btnAdd = new Button();
+            lstShowEntries = new ListBox();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // Based
@@ -43,7 +45,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(470, 81);
+            btnAdd.Location = new Point(76, 400);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 1;
@@ -51,11 +53,32 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
+            // lstShowEntries
+            // 
+            lstShowEntries.FormattingEnabled = true;
+            lstShowEntries.ItemHeight = 15;
+            lstShowEntries.Location = new Point(51, 129);
+            lstShowEntries.Name = "lstShowEntries";
+            lstShowEntries.Size = new Size(490, 244);
+            lstShowEntries.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(218, 402);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(lstShowEntries);
             Controls.Add(btnAdd);
             Controls.Add(Based);
             Name = "MainForm";
@@ -68,5 +91,7 @@
 
         private Label Based;
         private Button btnAdd;
+        private ListBox lstShowEntries;
+        private Button btnDelete;
     }
 }
