@@ -5,38 +5,70 @@ public class Show
 	private string title;
 	private ShowType type;
 	private WatchStatus status;
-	private int maxEpsiodes;
+	private int maxEpisodes;
 	private int currentEpisodes;
 	private double userScore;
 
-	public Show(string title, ShowType type, WatchStatus status, int maxEpisodes, int currentEpisodes,double userScore )
+	public Show(string title, ShowType type, WatchStatus status) 
 	{
 		this.title = title;
 		this.type = type;
 		this.status = status;
-		this.maxEpsiodes = maxEpisodes;
-		this.currentEpisodes = currentEpisodes;
-		this.userScore = userScore;
+		this.maxEpisodes = 0;
+		this.currentEpisodes = 0;
+		this.userScore = 0;
 	}
 
-	public Show(string title, ShowType type, WatchStatus status, int maxEpisodes):this(title, type, status, maxEpisodes, 0, 0) 
+	public Show():this(string.Empty, ShowType.Film, WatchStatus.Planned) 
 	{
-		if (status == WatchStatus.Complete)
+		
+	}
+
+	public int CurrentEpisodes
+	{
+		get { return this.currentEpisodes; }
+		set
 		{
-			currentEpisodes = maxEpisodes;
+			if (value >= 0) 
+			{
+				this.currentEpisodes = value;
+			}
 		}
 	}
 
-	public Show(string title, ShowType type, WatchStatus status):this(title, type, status, 0)
+	public ShowType Type
 	{
-		if (type == ShowType.Film)
-		{
-			maxEpsiodes=1;
-		}
+		get { return this.type; }
+		set { this.type = value; }
+	}
 
-		if (status == WatchStatus.Complete)
+	public WatchStatus Status
+	{
+		get { return this.status; }
+		set { this.status = value; } 
+	}
+
+	public int MaxEpisodes
+	{
+		get { return this.maxEpisodes; }
+		set 
 		{
-			currentEpisodes = maxEpsiodes;
+			if (value >= 0)
+			{
+				this.maxEpisodes = value;
+			}
+		}
+	}
+
+	public double UserScore
+	{
+		get { return this.userScore; }
+		set 
+		{
+			if (value >= 0)
+			{
+				this.userScore = value;
+			}
 		}
 	}
 }

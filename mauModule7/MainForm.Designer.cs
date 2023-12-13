@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             Based = new Label();
+            btnAdd = new Button();
             SuspendLayout();
             // 
             // Based
@@ -40,13 +41,24 @@
             Based.TabIndex = 0;
             Based.Text = "Based";
             // 
-            // Form1
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(470, 81);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAdd);
             Controls.Add(Based);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -55,5 +67,6 @@
         #endregion
 
         private Label Based;
+        private Button btnAdd;
     }
 }

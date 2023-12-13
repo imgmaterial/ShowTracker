@@ -179,15 +179,18 @@
             // 
             // btnOk
             // 
+            btnOk.DialogResult = DialogResult.OK;
             btnOk.Location = new Point(45, 382);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(129, 42);
             btnOk.TabIndex = 14;
             btnOk.Text = "Ok";
             btnOk.UseVisualStyleBackColor = true;
+            btnOk.Click += btnOk_Click;
             // 
             // btnCancel
             // 
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Location = new Point(219, 382);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(129, 42);
