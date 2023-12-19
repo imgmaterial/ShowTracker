@@ -6,6 +6,7 @@ namespace mauModule7
     {
 
         private ShowManager showManager;
+        private int hoverIndex = 0;
 
         public MainForm()
         {
@@ -48,6 +49,31 @@ namespace mauModule7
         private void entryToolTip_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+        /// <summary>
+        /// On mouse move find the current index of item being hovered over and set its title as the current tooltip for the listbox control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstShowEntries_MouseMove(object sender, MouseEventArgs e)
+        {
+            int showIndex = lstShowEntries.IndexFromPoint(e.X, e.Y);
+            if (showIndex == hoverIndex)
+            {
+                return;
+            }
+            if (showIndex >= 0)
+            {
+                entryToolTip.Active = true;
+                hoverIndex = showIndex;//cashes the index that was hovered in order to avoid extra calls to showManager
+                string title = showManager.ShowList[showIndex].Title;
+                entryToolTip.SetToolTip(lstShowEntries, title);
+            }
+            else
+            {
+                entryToolTip.Active = false;
+                hoverIndex = showIndex;
+            }
         }
     }
 }

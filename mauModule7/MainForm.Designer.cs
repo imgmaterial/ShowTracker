@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Based = new Label();
+            lblShowTitle = new Label();
             btnAdd = new Button();
             lstShowEntries = new ListBox();
             btnDelete = new Button();
@@ -40,17 +40,21 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             entryToolTip = new ToolTip(components);
+            lblType = new Label();
+            lblStatus = new Label();
+            lblProgress = new Label();
+            lblScore = new Label();
             menuStrip.SuspendLayout();
             SuspendLayout();
             // 
-            // Based
+            // lblShowTitle
             // 
-            Based.AutoSize = true;
-            Based.Location = new Point(187, 73);
-            Based.Name = "Based";
-            Based.Size = new Size(38, 15);
-            Based.TabIndex = 0;
-            Based.Text = "Based";
+            lblShowTitle.AutoSize = true;
+            lblShowTitle.Location = new Point(92, 102);
+            lblShowTitle.Name = "lblShowTitle";
+            lblShowTitle.Size = new Size(61, 15);
+            lblShowTitle.TabIndex = 0;
+            lblShowTitle.Text = "Show Title";
             // 
             // btnAdd
             // 
@@ -71,6 +75,7 @@
             lstShowEntries.Name = "lstShowEntries";
             lstShowEntries.Size = new Size(593, 244);
             lstShowEntries.TabIndex = 2;
+            lstShowEntries.MouseMove += lstShowEntries_MouseMove;
             // 
             // btnDelete
             // 
@@ -126,15 +131,55 @@
             // 
             entryToolTip.Popup += entryToolTip_Popup;
             // 
+            // lblType
+            // 
+            lblType.AutoSize = true;
+            lblType.Location = new Point(378, 102);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(31, 15);
+            lblType.TabIndex = 5;
+            lblType.Text = "Type";
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(440, 102);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(39, 15);
+            lblStatus.TabIndex = 6;
+            lblStatus.Text = "Status";
+            // 
+            // lblProgress
+            // 
+            lblProgress.AutoSize = true;
+            lblProgress.Location = new Point(504, 102);
+            lblProgress.Name = "lblProgress";
+            lblProgress.Size = new Size(52, 15);
+            lblProgress.TabIndex = 7;
+            lblProgress.Text = "Progress";
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Location = new Point(594, 102);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(36, 15);
+            lblScore.TabIndex = 8;
+            lblScore.Text = "Score";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblScore);
+            Controls.Add(lblProgress);
+            Controls.Add(lblStatus);
+            Controls.Add(lblType);
             Controls.Add(btnDelete);
             Controls.Add(lstShowEntries);
             Controls.Add(btnAdd);
-            Controls.Add(Based);
+            Controls.Add(lblShowTitle);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
             Name = "MainForm";
@@ -147,7 +192,7 @@
 
         #endregion
 
-        private Label Based;
+        private Label lblShowTitle;
         private Button btnAdd;
         private ListBox lstShowEntries;
         private Button btnDelete;
@@ -159,5 +204,9 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private Label label1;
         private ToolTip entryToolTip;
+        private Label lblType;
+        private Label lblStatus;
+        private Label lblProgress;
+        private Label lblScore;
     }
 }

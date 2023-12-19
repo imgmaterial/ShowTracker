@@ -4,5 +4,6 @@ public enum WatchStatus
 {
 	Planned,
 	Watching,
-	Complete
+	Completed,
+	Dropped
 }

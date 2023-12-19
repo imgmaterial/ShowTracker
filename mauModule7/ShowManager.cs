@@ -61,7 +61,7 @@ public class ShowManager
 		string watchStatus = showList[index].Status.ToString();
 		string progress = string.Format("{0}/{1}", showList[index].CurrentEpisodes, showList[index].MaxEpisodes);
 		string userScore = showList[index].UserScore.ToString();
-		string stringRepresentation = string.Format("{0,-45}{1, -10}{2, -10}{3,-10}{4,-6}", showName, showType, watchStatus, progress, userScore);
+		string stringRepresentation = string.Format("{0,-45}{1, -10}{2, -10}{3,-14}{4,-6}", showName, showType, watchStatus, progress, userScore);
 		return stringRepresentation;
 	}
 }
