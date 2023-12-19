@@ -44,5 +44,10 @@ namespace mauModule7
             showManager.RemoveShow(index);
             UpdateGUI();
         }
+
+        private void entryToolTip_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

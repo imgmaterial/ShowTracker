@@ -53,6 +53,15 @@ public class ShowManager
 	public string GenerateEntryStringRepresentation(int index)
 	{
 		string showName = showList[index].Title;
-		return showName;
+		if (showName.Length >= 44)
+		{
+			showName = showName.Substring(0,40) + "...";
+		}
+		string showType = showList[index].Type.ToString();
+		string watchStatus = showList[index].Status.ToString();
+		string progress = string.Format("{0}/{1}", showList[index].CurrentEpisodes, showList[index].MaxEpisodes);
+		string userScore = showList[index].UserScore.ToString();
+		string stringRepresentation = string.Format("{0,-45}{1, -10}{2, -10}{3,-10}{4,-6}", showName, showType, watchStatus, progress, userScore);
+		return stringRepresentation;
 	}
 }
