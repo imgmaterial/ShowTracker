@@ -17,13 +17,22 @@ namespace mauModule7
         {
             InitializeComponent();
             this.show = show;
-            InitializeGUI();
+            InitializeGUI(show);
         }
 
-        private void InitializeGUI()
+        private void InitializeGUI(Show show)
         {
             this.cmbShowType.DataSource =  Enum.GetValues(typeof(ShowType));
             this.cmbWatchStatus.DataSource = Enum.GetValues(typeof(WatchStatus));
+            if (!string.IsNullOrEmpty(show.Title))
+            {
+                this.txtShowTitle.Text = show.Title;
+                this.cmbShowType.SelectedIndex = (int)show.Type;
+                this.cmbWatchStatus.SelectedIndex = (int)show.Status;
+                this.txtTotalEpisodes.Text = show.MaxEpisodes.ToString();
+                this.txtEpisodesWatched.Text = show.CurrentEpisodes.ToString();
+                this.txtUserScore.Text = show.UserScore.ToString();
+            }
         }
 
         private bool ReadInputs()
@@ -40,7 +49,7 @@ namespace mauModule7
             show.Status = (WatchStatus)cmbWatchStatus.SelectedIndex;
             if (ReadMaxEpisodes() && ReadEpisodesWatched() && ReadUserScore()) 
             {
-                ok = true; 
+                ok = true;
             }
             return ok;
 

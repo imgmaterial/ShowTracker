@@ -55,6 +55,7 @@
             numEpisodesWatched = new NumericUpDown();
             label1 = new Label();
             cmbWachStatus = new ComboBox();
+            btnChange = new Button();
             menuStrip.SuspendLayout();
             grpSelectedShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numShowScore).BeginInit();
@@ -74,7 +75,7 @@
             // 
             btnAdd.Location = new Point(66, 440);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(163, 42);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -94,9 +95,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(208, 442);
+            btnDelete.Location = new Point(283, 440);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
+            btnDelete.Size = new Size(161, 42);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -122,7 +123,7 @@
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Size = new Size(146, 22);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
@@ -130,7 +131,7 @@
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(146, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
@@ -138,7 +139,7 @@
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(146, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
@@ -146,7 +147,7 @@
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(146, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -297,11 +298,22 @@
             cmbWachStatus.TabIndex = 15;
             cmbWachStatus.SelectedIndexChanged += cmbWachStatus_SelectedIndexChanged;
             // 
+            // btnChange
+            // 
+            btnChange.Location = new Point(494, 440);
+            btnChange.Name = "btnChange";
+            btnChange.Size = new Size(161, 42);
+            btnChange.TabIndex = 16;
+            btnChange.Text = "Change";
+            btnChange.UseVisualStyleBackColor = true;
+            btnChange.Click += btnChange_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 529);
+            Controls.Add(btnChange);
             Controls.Add(grpSelectedShow);
             Controls.Add(lblScore);
             Controls.Add(lblProgress);
@@ -355,5 +367,6 @@
         private NumericUpDown numEpisodesWatched;
         private NumericUpDown numShowScore;
         private Label lblShowScore;
+        private Button btnChange;
     }
 }

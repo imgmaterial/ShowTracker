@@ -24,6 +24,16 @@ public class Show
 		
 	}
 
+	public Show(Show other)
+	{
+        this.title = other.Title;
+        this.type = other.Type;
+        this.status = other.Status;
+        this.maxEpisodes = other.MaxEpisodes;
+        this.currentEpisodes = other.CurrentEpisodes;
+        this.userScore = other.UserScore;
+    }
+
 	public string Title
 	{
 		get { return this.title; } 

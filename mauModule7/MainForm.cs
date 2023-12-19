@@ -121,6 +121,7 @@ namespace mauModule7
             }
             currentShow = showManager.ShowList[selectedIndex];
             SetCurrentShowInfo(currentShow);
+            lstShowEntries.SelectedIndex = selectedIndex;
         }
 
         private void cmbWachStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,6 +186,19 @@ namespace mauModule7
             {
                 this.Close();
             }
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = lstShowEntries.SelectedIndex;
+            Show show = new Show(showManager.ShowList[selectedIndex]);
+            ShowEntry showEntryForm = new ShowEntry(show);
+            DialogResult result = showEntryForm.ShowDialog();
+            if (result == DialogResult.OK) 
+            {
+                showManager.ChangeAtIndex(selectedIndex, show);
+            }
+            UpdateGUI();
         }
     }
 }

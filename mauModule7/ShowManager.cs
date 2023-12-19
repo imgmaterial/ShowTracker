@@ -50,6 +50,14 @@ public class ShowManager
 		}
 	}
 
+	public void ChangeAtIndex(int index, Show show)
+	{
+		if (ValidateIndex(index))
+		{
+			showList[index] = show;
+		}
+	}
+
 	public string GenerateEntryStringRepresentation(int index)
 	{
 		string showName = showList[index].Title;
