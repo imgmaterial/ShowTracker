@@ -6,7 +6,12 @@ public class FileManager
     private const string fileVersionToken = "ShowTracker_01";
     private const double fileVersionNr = 1.0;
 
-
+    /// <summary>
+    /// Writes the entries from the provided show to a text file with given name. Returns true if the save was successful.
+    /// </summary>
+    /// <param name="showList"></param>
+    /// <param name="textFile"></param>
+    /// <returns>bool ok</returns>
 	public bool WriteToTextFile(List<Show> showList,string textFile) 
 	{
         bool ok = true;
@@ -42,7 +47,12 @@ public class FileManager
         }
         return ok;
     }
-
+    /// <summary>
+    /// Reads the values from an existing save file to a show list. Returns true if reading was successful.
+    /// </summary>
+    /// <param name="showList"></param>
+    /// <param name="textFile"></param>
+    /// <returns>bool ok</returns>
     public bool ReadFromTextFile(List<Show> showList, string textFile)
 	{
         bool ok = true;

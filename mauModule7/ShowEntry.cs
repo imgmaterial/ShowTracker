@@ -19,7 +19,10 @@ namespace mauModule7
             this.show = show;
             InitializeGUI(show);
         }
-
+        /// <summary>
+        /// Initializes the GUI, if the show has a non empty title it sets all fields to the values provided in the show object.
+        /// </summary>
+        /// <param name="show"></param>
         private void InitializeGUI(Show show)
         {
             this.cmbShowType.DataSource =  Enum.GetValues(typeof(ShowType));
@@ -34,7 +37,10 @@ namespace mauModule7
                 this.txtUserScore.Text = show.UserScore.ToString();
             }
         }
-
+        /// <summary>
+        /// Reads all of the input filds and returns true if everything was successful.
+        /// </summary>
+        /// <returns>bool ok</returns>
         private bool ReadInputs()
         {
             bool ok = false;
@@ -54,7 +60,11 @@ namespace mauModule7
             return ok;
 
         }
-
+        /// <summary>
+        /// Reads the value of the episodes watched field. Checks if the watched episodes value is under the max episode value. Returns true if the 
+        /// reading was successful and the value is between 0 and max episodes.
+        /// </summary>
+        /// <returns>bool ok</returns>
         private bool ReadEpisodesWatched()
         {
             int episodesWatched;
@@ -73,7 +83,10 @@ namespace mauModule7
             }
             return ok;
         }
-
+        /// <summary>
+        /// Reads the max episodes value. Returns true if successful and value is larger than 0.
+        /// </summary>
+        /// <returns>bool ok</returns>
         private bool ReadMaxEpisodes()
         {
             int maxEpisodes;
@@ -91,7 +104,10 @@ namespace mauModule7
             }
             return ok;
         }
-
+        /// <summary>
+        /// Reads user score value. Return true if the parsing is successful and value is between 0 and 10.
+        /// </summary>
+        /// <returns>bool ok</returns>
         private bool ReadUserScore()
         {
             double userScore;
@@ -109,7 +125,11 @@ namespace mauModule7
             }
             return ok;
         }
-
+        /// <summary>
+        /// On ok button click it reads input fields.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             bool ok = ReadInputs();

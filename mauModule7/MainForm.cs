@@ -15,7 +15,9 @@ namespace mauModule7
             InitializeComponent();
             InitializeGUI();
         }
-
+        /// <summary>
+        /// Initializes the GUI to default values.
+        /// </summary>
         private void InitializeGUI()
         {
             this.Text = "Show Tracker";
@@ -27,7 +29,9 @@ namespace mauModule7
             showManager = new ShowManager();
             UpdateGUI();
         }
-
+        /// <summary>
+        /// Updates the GUI with the current values from the showManager.
+        /// </summary>
         private void UpdateGUI()
         {
             lstShowEntries.Items.Clear();
@@ -39,7 +43,10 @@ namespace mauModule7
                 lstShowEntries.Items.Add(showManager.GenerateEntryStringRepresentation(i));
             }
         }
-
+        /// <summary>
+        /// Sets the values of current series group the the values of the given show.
+        /// </summary>
+        /// <param name="show"></param>
         private void SetCurrentShowInfo(Show show)
         {
             this.txtCurrentShow.Text = show.Title;
@@ -49,7 +56,11 @@ namespace mauModule7
             this.numEpisodesWatched.Value = show.CurrentEpisodes;
             this.numShowScore.Value = (decimal)show.UserScore;
         }
-
+        /// <summary>
+        /// On Add button click opens a show entry dialogue and updates GUI if the dialog is successful. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Show show = new Show();
@@ -61,7 +72,11 @@ namespace mauModule7
             }
             UpdateGUI();
         }
-
+        /// <summary>
+        /// Removes a selected show from the list and updates the GUI.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int index = lstShowEntries.SelectedIndex;
@@ -98,7 +113,11 @@ namespace mauModule7
                 hoverIndex = showIndex;
             }
         }
-
+        /// <summary>
+        /// On change of episode number control sets the values episodes watched to currently selected show.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numEpisodesWatched_ValueChanged(object sender, EventArgs e)
         {
             if (currentShow == null)
@@ -110,7 +129,11 @@ namespace mauModule7
             UpdateGUI();
 
         }
-
+        /// <summary>
+        /// On selecting a new entry in the show list sets it as the current show and updates the current show values.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstShowEntries_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = lstShowEntries.SelectedIndex;
@@ -124,6 +147,11 @@ namespace mauModule7
             lstShowEntries.SelectedIndex = selectedIndex;
         }
 
+        /// <summary>
+        /// On change of watch status sets it to the current show.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbWachStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (currentShow == null)
@@ -134,7 +162,11 @@ namespace mauModule7
             currentShow.Status = (WatchStatus)cmbWachStatus.SelectedIndex;
             UpdateGUI();
         }
-
+        /// <summary>
+        /// Changes the current show score.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numShowScore_ValueChanged(object sender, EventArgs e)
         {
             if (currentShow == null)
@@ -145,7 +177,11 @@ namespace mauModule7
             currentShow.UserScore = (double)numShowScore.Value;
             UpdateGUI();
         }
-
+        /// <summary>
+        /// On save menu item selected saves the current show list into a text file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool ok = showManager.WriteDataToFile(saveFileName);
@@ -158,7 +194,11 @@ namespace mauModule7
                 MessageBox.Show("Data saved to file:" + Environment.NewLine + saveFileName, "Save Successful");
             }
         }
-
+        /// <summary>
+        /// On open menu select opens a previously saved files.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeGUI();
@@ -172,12 +212,21 @@ namespace mauModule7
                 UpdateGUI();
             }
         }
-
+        /// <summary>
+        /// On new item selected re-initialize the GUI.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeGUI();
         }
 
+        /// <summary>
+        /// On exit shows a dialog if yes selected closes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Quit", MessageBoxButtons.YesNo);
@@ -187,7 +236,12 @@ namespace mauModule7
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// On change button create a new show entry dialog form with the show values initialized. On OK response change the show at the given
+        /// index to the new input results.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChange_Click(object sender, EventArgs e)
         {
             int selectedIndex = lstShowEntries.SelectedIndex;
