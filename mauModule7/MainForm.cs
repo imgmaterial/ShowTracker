@@ -8,12 +8,12 @@ namespace mauModule7
         private ShowManager showManager;
         private Show currentShow;
         private int hoverIndex = 0;
+        private const string saveFileName = "ShowList.txt";
 
         public MainForm()
         {
             InitializeComponent();
             InitializeGUI();
-            showManager = new ShowManager();
         }
 
         private void InitializeGUI()
@@ -24,6 +24,8 @@ namespace mauModule7
             this.txtTotalEpisodes.Text = "0";
             this.numEpisodesWatched.Value = 0;
             this.numShowScore.Value = 0;
+            showManager = new ShowManager();
+            UpdateGUI();
         }
 
         private void UpdateGUI()
@@ -134,13 +136,55 @@ namespace mauModule7
 
         private void numShowScore_ValueChanged(object sender, EventArgs e)
         {
-            if (currentShow == null) 
+            if (currentShow == null)
             {
                 return;
             }
 
             currentShow.UserScore = (double)numShowScore.Value;
             UpdateGUI();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool ok = showManager.WriteDataToFile(saveFileName);
+            if (!ok)
+            {
+                MessageBox.Show("Error during file save", "Error");
+            }
+            else
+            {
+                MessageBox.Show("Data saved to file:" + Environment.NewLine + saveFileName, "Save Successful");
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeGUI();
+            bool ok = showManager.ReadDataFromFile(saveFileName);
+            if (!ok)
+            {
+                MessageBox.Show("Error occured when trying to read file");
+            }
+            else
+            {
+                UpdateGUI();
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeGUI();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Quit", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

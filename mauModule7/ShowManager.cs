@@ -64,4 +64,16 @@ public class ShowManager
 		string stringRepresentation = string.Format("{0,-45}{1, -10}{2, -10}{3,-14}{4,-6}", showName, showType, watchStatus, progress, userScore);
 		return stringRepresentation;
 	}
+
+    public bool ReadDataFromFile(string fileName)
+    {
+        FileManager fileManager = new FileManager();
+        return fileManager.ReadFromTextFile(showList, fileName);
+    }
+
+	public bool WriteDataToFile(string fileName)
+	{
+        FileManager fileManager = new FileManager();
+		return fileManager.WriteToTextFile(showList,fileName);
+    }
 }
