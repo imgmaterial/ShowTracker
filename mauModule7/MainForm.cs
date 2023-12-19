@@ -6,12 +6,24 @@ namespace mauModule7
     {
 
         private ShowManager showManager;
+        private Show currentShow;
         private int hoverIndex = 0;
 
         public MainForm()
         {
             InitializeComponent();
+            InitializeGUI();
             showManager = new ShowManager();
+        }
+
+        private void InitializeGUI()
+        {
+            this.Text = "Show Tracker";
+            this.txtCurrentShow.Text = string.Empty;
+            this.cmbWachStatus.DataSource = Enum.GetValues(typeof(WatchStatus));
+            this.txtTotalEpisodes.Text = "0";
+            this.numEpisodesWatched.Value = 0;
+            this.numShowScore.Value = 0;
         }
 
         private void UpdateGUI()
@@ -19,12 +31,21 @@ namespace mauModule7
             lstShowEntries.Items.Clear();
             List<Show> showList = showManager.ShowList;
             int listLength = showList.Count;
-            Debug.WriteLine("pepega");
             for (int i = 0; i < listLength; i++)
             {
                 Debug.WriteLine(showList[i].Title);
                 lstShowEntries.Items.Add(showManager.GenerateEntryStringRepresentation(i));
             }
+        }
+
+        private void SetCurrentShowInfo(Show show)
+        {
+            this.txtCurrentShow.Text = show.Title;
+            this.cmbWachStatus.SelectedIndex = (int)show.Status;
+            this.txtTotalEpisodes.Text = show.MaxEpisodes.ToString();
+            this.numEpisodesWatched.Maximum = show.MaxEpisodes;
+            this.numEpisodesWatched.Value = show.CurrentEpisodes;
+            this.numShowScore.Value = (decimal)show.UserScore;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -74,6 +95,52 @@ namespace mauModule7
                 entryToolTip.Active = false;
                 hoverIndex = showIndex;
             }
+        }
+
+        private void numEpisodesWatched_ValueChanged(object sender, EventArgs e)
+        {
+            if (currentShow == null)
+            {
+                return;
+            }
+
+            currentShow.CurrentEpisodes = (int)numEpisodesWatched.Value;
+            UpdateGUI();
+
+        }
+
+        private void lstShowEntries_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = lstShowEntries.SelectedIndex;
+
+            if (lstShowEntries.SelectedIndex == -1)
+            {
+                return;
+            }
+            currentShow = showManager.ShowList[selectedIndex];
+            SetCurrentShowInfo(currentShow);
+        }
+
+        private void cmbWachStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentShow == null)
+            {
+                return;
+            }
+
+            currentShow.Status = (WatchStatus)cmbWachStatus.SelectedIndex;
+            UpdateGUI();
+        }
+
+        private void numShowScore_ValueChanged(object sender, EventArgs e)
+        {
+            if (currentShow == null) 
+            {
+                return;
+            }
+
+            currentShow.UserScore = (double)numShowScore.Value;
+            UpdateGUI();
         }
     }
 }
