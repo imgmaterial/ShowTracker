@@ -56,6 +56,8 @@
             label1 = new Label();
             cmbWachStatus = new ComboBox();
             btnChange = new Button();
+            userSummaryToolStripMenuItem = new ToolStripMenuItem();
+            summaryToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             grpSelectedShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numShowScore).BeginInit();
@@ -105,7 +107,7 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, userSummaryToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new Size(836, 24);
@@ -308,6 +310,20 @@
             btnChange.UseVisualStyleBackColor = true;
             btnChange.Click += btnChange_Click;
             // 
+            // userSummaryToolStripMenuItem
+            // 
+            userSummaryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { summaryToolStripMenuItem });
+            userSummaryToolStripMenuItem.Name = "userSummaryToolStripMenuItem";
+            userSummaryToolStripMenuItem.Size = new Size(96, 20);
+            userSummaryToolStripMenuItem.Text = "User Summary";
+            // 
+            // summaryToolStripMenuItem
+            // 
+            summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
+            summaryToolStripMenuItem.Size = new Size(180, 22);
+            summaryToolStripMenuItem.Text = "Summary";
+            summaryToolStripMenuItem.Click += summaryToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -368,5 +384,7 @@
         private NumericUpDown numShowScore;
         private Label lblShowScore;
         private Button btnChange;
+        private ToolStripMenuItem userSummaryToolStripMenuItem;
+        private ToolStripMenuItem summaryToolStripMenuItem;
     }
 }

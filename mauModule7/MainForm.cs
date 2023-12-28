@@ -248,11 +248,17 @@ namespace mauModule7
             Show show = new Show(showManager.ShowList[selectedIndex]);
             ShowEntry showEntryForm = new ShowEntry(show);
             DialogResult result = showEntryForm.ShowDialog();
-            if (result == DialogResult.OK) 
+            if (result == DialogResult.OK)
             {
                 showManager.ChangeAtIndex(selectedIndex, show);
             }
             UpdateGUI();
+        }
+
+        private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string summary = showManager.GenerateUserSummary();
+            MessageBox.Show(summary, "User Summary");
         }
     }
 }

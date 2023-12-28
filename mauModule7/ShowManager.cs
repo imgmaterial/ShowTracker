@@ -91,6 +91,71 @@ public class ShowManager
 		return stringRepresentation;
 	}
 	/// <summary>
+	/// Collect information from the show list into a ListSummary and returns a string representation of all the information present in the list.
+	/// </summary>
+	/// <returns>string summary</returns>
+	public string GenerateUserSummary()
+	{
+		ListSummary summary = new ListSummary();
+        double totalScore = 0;
+		summary.TotalShows = showList.Count;
+        foreach (var show in showList) 
+		{
+			if (show.Status != WatchStatus.Planned)
+			{
+                totalScore += show.UserScore;
+            }
+			switch (show.Type)
+			{
+				case ShowType.Film:
+					summary.FilmWatched += 1;
+
+					switch (show.Status)
+					{
+						case WatchStatus.Planned:
+							summary.FilmsPlanned += 1;
+							break;
+						case WatchStatus.Completed:
+							summary.FilmsCompleted += 1;
+							break;
+						case WatchStatus.Watching:
+							summary.FilmsWatching += 1;
+							break;
+						case WatchStatus.Dropped:
+							summary.FilmsDropped += 1;
+							break;
+					}
+
+					break;
+				case ShowType.Series:
+					summary.SeriesWatched += 1;
+					summary.SeriesEpisodesWatched += show.CurrentEpisodes;
+					summary.SeriesEpisodesTotal += show.MaxEpisodes;
+                    switch (show.Status)
+                    {
+                        case WatchStatus.Planned:
+                            summary.SeriesPlanned += 1;
+                            break;
+                        case WatchStatus.Completed:
+                            summary.SeriesCompleted += 1;
+                            break;
+                        case WatchStatus.Watching:
+                            summary.SeriesWatching += 1;
+                            break;
+                        case WatchStatus.Dropped:
+                            summary.SeriesDropped += 1;
+                            break;
+                    }
+                    break;
+				
+			}
+		}
+        summary.AverageScore = totalScore / summary.TotalShows;
+		return summary.GenerateSummaryString();
+    }
+
+
+	/// <summary>
 	/// Reads data from a file into the show list.
 	/// </summary>
 	/// <param name="fileName"></param>
