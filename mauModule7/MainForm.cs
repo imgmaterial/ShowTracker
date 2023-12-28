@@ -260,5 +260,11 @@ namespace mauModule7
             string summary = showManager.GenerateUserSummary();
             MessageBox.Show(summary, "User Summary");
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
+        }
     }
 }

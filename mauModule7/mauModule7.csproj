@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>ShowTracker</PackageId>
+    <Title>Show Tracker</Title>
+    <Authors>Pavel Oshchepkov</Authors>
+    <Company>Pavel Oshchepkov</Company>
+    <Product>Show Tracker</Product>
+    <Description>A show tracker program that allows the user to add and track they progress in watching films and series as well as grading scoring them.</Description>
   </PropertyGroup>
 
 </Project>

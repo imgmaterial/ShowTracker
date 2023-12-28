@@ -39,6 +39,8 @@
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            userSummaryToolStripMenuItem = new ToolStripMenuItem();
+            summaryToolStripMenuItem = new ToolStripMenuItem();
             entryToolTip = new ToolTip(components);
             lblType = new Label();
             lblStatus = new Label();
@@ -56,8 +58,8 @@
             label1 = new Label();
             cmbWachStatus = new ComboBox();
             btnChange = new Button();
-            userSummaryToolStripMenuItem = new ToolStripMenuItem();
-            summaryToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             grpSelectedShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numShowScore).BeginInit();
@@ -107,7 +109,7 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, userSummaryToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, userSummaryToolStripMenuItem, helpToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new Size(836, 24);
@@ -152,6 +154,20 @@
             exitToolStripMenuItem.Size = new Size(146, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // userSummaryToolStripMenuItem
+            // 
+            userSummaryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { summaryToolStripMenuItem });
+            userSummaryToolStripMenuItem.Name = "userSummaryToolStripMenuItem";
+            userSummaryToolStripMenuItem.Size = new Size(96, 20);
+            userSummaryToolStripMenuItem.Text = "User Summary";
+            // 
+            // summaryToolStripMenuItem
+            // 
+            summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
+            summaryToolStripMenuItem.Size = new Size(180, 22);
+            summaryToolStripMenuItem.Text = "Summary";
+            summaryToolStripMenuItem.Click += summaryToolStripMenuItem_Click;
             // 
             // entryToolTip
             // 
@@ -310,19 +326,19 @@
             btnChange.UseVisualStyleBackColor = true;
             btnChange.Click += btnChange_Click;
             // 
-            // userSummaryToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            userSummaryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { summaryToolStripMenuItem });
-            userSummaryToolStripMenuItem.Name = "userSummaryToolStripMenuItem";
-            userSummaryToolStripMenuItem.Size = new Size(96, 20);
-            userSummaryToolStripMenuItem.Text = "User Summary";
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
             // 
-            // summaryToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            summaryToolStripMenuItem.Size = new Size(180, 22);
-            summaryToolStripMenuItem.Text = "Summary";
-            summaryToolStripMenuItem.Click += summaryToolStripMenuItem_Click;
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -386,5 +402,7 @@
         private Button btnChange;
         private ToolStripMenuItem userSummaryToolStripMenuItem;
         private ToolStripMenuItem summaryToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
