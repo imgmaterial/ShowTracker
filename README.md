@@ -31,12 +31,6 @@ git clone https://github.com/imgmaterial/ShowTracker.git
    - Use File > Save to store your current watchlist
    - Use File > Open to load a previously saved watchlist
 
-## Development
-To contribute to this project:
-1. Fork the repository
-2. Create a new branch for your feature
-3. Submit a pull request with your changes
-
 ## Built With
 - C# Programming Language
 - Windows Forms
