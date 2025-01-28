@@ -8,6 +8,8 @@ The application features a robust file handling system that enables you to:
 - Load previously saved watchlists, making it easy to transfer your data between computers
 - Auto-save functionality to prevent data loss
 - Export your data for backup purposes
+![image](https://github.com/user-attachments/assets/4c9f510d-1063-4aed-864c-dc5c1e8779ae)
+
 
 ## Prerequisites
 - Windows Operating System
